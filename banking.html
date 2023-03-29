@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./banking.css">
+    <title>banking application</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo" style="display: flex; margin-left: 4%;color: rgb(57, 8, 102); font-size: x-large;">
+            <h2 style="color: rgb(233, 235, 233);">OKi</h2>
+            <h1>ipay</h1>
+        </div>
+        <div class="body">
+            <h2> Create an accout</h2>
+        </div>
+        <div class="list">
+            <ul class="lis">
+                <li class="li" style="list-style: none;">
+                    <input type="first name" name=" " placeholder="First name" id="fName" style=" height: 30px; width: 90%; border: none; border-radius: 7px;">
+                    <input type="middle name" name="" placeholder="middle name" id="mName" style="margin-top: 10px; height: 30px; width: 90%; border: none; border-radius: 7px;">
+                    <input type=" last name  " name=" " placeholder="Last name " id="lName" style="margin-top: 10px; height: 30px; width: 90%; border: none; border-radius: 7px;">
+                    <input type="email " name="email " placeholder="Email Address " id="Email" style="margin-top: 10px; height: 30px; width: 90%; border: none; border-radius: 7px;">
+                    <input type="password " name=" " placeholder="Email password " id="passWord" style="margin-top: 10px; height: 30px; width: 90%; border: none; border-radius: 7px;">
+                </li>
+            </ul>
+        </div>
+        <!-- <input type="dd/mm/yy " name=" " placeholder="Enter DOB " id="Dob" style="margin-top: 10px; height: 30px; width: 90%; border: none; border-radius: 7px;"> -->
+
+        <button class="btn" onclick="signUp()"><a href="# " style="text-decoration: none;">
+                <h3>SIGNUP</h3>
+            </a></button>
+        <p class="link ">
+            <h4 class="login" style="margin-left: 42%; ">
+                already have an account <br>
+                <a href="# " onclick="login()" style="color: whitesmoke;text-decoration: none;">login</a>here</h4>
+        </p>
+        <!-- <p class="logwith ">log in with
+            </h4>
+        </p> -->
+    </div>
+    <script>
+        var allCustomer = []
+        if (localStorage.localCustomer) {
+            var oldData = JSON.parse(localStorage.getItem("localCustomer"))
+            var allCustomer = oldData
+        }
+        console.log(allCustomer)
+
+        function signUp() {
+            if (fName.value == "") {
+                alert("please Enter your details")
+            } else {
+                var customer = {
+                    firstname: fName.value,
+                    middlename: mName.value,
+                    lastname: lName.value,
+                    email: Email.value,
+                    password: passWord.value,
+                    // dateofbirth: Dob.value
+                }
+                allCustomer.push(customer);
+                localStorage.setItem('localCustomer', JSON.stringify(allCustomer));
+                window.location.href = "signInbankingapp.html"
+            }
+        }
+
+        function login() {
+            localStorage.setItem('localCustomer', JSON.stringify(allCustomer));
+            window.location.href = "signInbankingapp.html"
+        }
+    </script>
+</body>
+
+</html><a href="http://" target="_blank" rel="noopener noreferrer">daddy</a>

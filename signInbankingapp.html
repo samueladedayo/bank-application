@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./signinbankingapp.css">
+    <title>signin</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="logo" style="display: flex; margin-left: 4%;color: rgb(57, 8, 102); font-size: x-large;">
+            <h2 style="color: rgb(233, 235, 233);">OKi</h2>
+            <h1>ipay</h1>
+        </div>
+
+        <ul>
+            <li style="list-style: none;">
+                <input type="email " name="email " placeholder="Email Address " id="Email" style=" height: 30px; width: 90%; border: none; border-radius: 7px;">
+                <input type="password " name=" " placeholder="Email password " id="passWord" style="margin-top: 20px; height: 30px; width: 90%; border: none; border-radius: 7px;">
+                <!-- <input type="password " name=" " placeholder="Email password " id="passWord" style="margin-top: 20px; height: 30px; width: 90%; border: none; border-radius: 7px;"> -->
+            </li>
+        </ul>
+        <div>
+            <button class="btn" onclick="signIn()"><a href="# " style="text-decoration: none;">
+                <h3>Signin</h3>
+            </a></button>
+        </div>
+        <div class="place" style="color: green; font-size: large; margin-left: 5%;">
+            Beyond banking💰💶💵💥
+        </div>
+        <p>
+            <h6 style="color:whitesmoke;">@copyright samstar</h6>
+        </p>
+    </div>
+    <script>
+        var allCustomer = JSON.parse(localStorage.getItem('localCustomer'))
+        console.log(allCustomer)
+
+        function signIn() {
+            if (userEmail == "" && userPassword == "") {
+                alert("input your Email and password")
+            } else {
+                var userEmail = Email.value
+                var userPassword = passWord.value
+                var found = false
+                for (let index = 0; index < allCustomer.length; index++) {
+                    if (allCustomer[index].email == userEmail && allCustomer[index].password == userPassword) {
+                        localStorage.setItem('currentUserIndex', index)
+                        found = true
+                        break
+                    }
+                }
+                if (found == true) {
+                    alert("welcome")
+                    window.location.href = "bankingappdashboard.html"
+                } else {
+                    alert("input your details")
+                }
+
+            }
+        }
+    </script>
+</body>
+
+</html>
